@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sugar Land Veterinary Clinic | Veterinarian in Sugar Land, TX</title>
+<meta name="description" content="Compassionate, full-service veterinary care for dogs, cats, and small pets in Sugar Land, TX. Where we treat your pets as if they were our own.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --surface:#f5faf8;
+    --surface-2:#eaf4f1;
+    --text:#14312b;
+    --muted:#55675f;
+    --border:#d9e7e2;
+    --primary:#0f7a6a;
+    --primary-dark:#0b5c50;
+    --primary-light:#e2f2ee;
+    --accent:#ff7a4d;
+    --accent-dark:#e85f30;
+    --star:#f5b301;
+    --ring:rgba(15,122,106,.28);
+    --shadow-sm:0 2px 8px rgba(16,40,36,.06);
+    --shadow:0 12px 32px rgba(16,40,36,.10);
+    --shadow-lg:0 24px 60px rgba(16,40,36,.14);
+    --radius:16px;
+    --radius-sm:10px;
+    --maxw:1140px;
+    --font-head:'Poppins',system-ui,sans-serif;
+    --font-body:'Inter',system-ui,sans-serif;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font-body);
+    color:var(--text);
+    background:var(--bg);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:var(--font-head);line-height:1.18;color:var(--text);font-weight:600}
+  a{color:inherit;text-decoration:none}
+  img,svg{display:block;max-width:100%}
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  section{scroll-margin-top:120px}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    font-family:var(--font-head);font-weight:600;font-size:.98rem;
+    padding:14px 26px;border-radius:999px;cursor:pointer;border:2px solid transparent;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease;
+    white-space:nowrap;
+  }
+  .btn:focus-visible{outline:none;box-shadow:0 0 0 4px var(--ring)}
+  .btn-accent{background:var(--accent);color:#fff}
+  .btn-accent:hover{background:var(--accent-dark);transform:translateY(-2px);box-shadow:var(--shadow)}
+  .btn-primary{background:var(--primary);color:#fff}
+  .btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:var(--shadow)}
+  .btn-ghost{background:transparent;color:var(--primary);border-color:var(--border)}
+  .btn-ghost:hover{border-color:var(--primary);background:var(--primary-light)}
+  .btn-white{background:#fff;color:var(--primary)}
+  .btn-white:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+
+  /* ---------- Top utility bar ---------- */
+  .util{background:var(--primary-dark);color:#dff0ec;font-size:.86rem}
+  .util .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:42px;flex-wrap:wrap}
+  .util a{display:inline-flex;align-items:center;gap:7px;color:#eafaf6;font-weight:500}
+  .util a:hover{color:#fff}
+  .util .util-left{display:flex;gap:22px;flex-wrap:wrap}
+  .util .util-right{display:flex;gap:22px;flex-wrap:wrap}
+  .util svg{width:15px;height:15px;flex:0 0 auto}
+
+  /* ---------- Header / sticky nav ---------- */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);
+    backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--border)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:76px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .mark{width:46px;height:46px;flex:0 0 auto;border-radius:12px;
+    background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+    display:grid;place-items:center;box-shadow:var(--shadow-sm)}
+  .brand .mark svg{width:26px;height:26px}
+  .brand .b-text{display:flex;flex-direction:column;line-height:1.1}
+  .brand .b-name{font-family:var(--font-head);font-weight:700;font-size:1.06rem;color:var(--text)}
+  .brand .b-sub{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);font-weight:600}
+  nav.links{display:flex;align-items:center;gap:28px}
+  nav.links a{font-weight:500;font-size:.96rem;color:var(--text);position:relative;padding:6px 0}
+  nav.links a:hover{color:var(--primary)}
+  nav.links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--primary);transition:width .2s ease}
+  nav.links a:hover::after{width:100%}
+  .nav-cta{display:flex;align-items:center;gap:12px}
+  .menu-toggle{display:none}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;overflow:hidden;background:
+      radial-gradient(120% 120% at 85% 0%,var(--surface-2) 0%,var(--surface) 42%,#fff 75%)}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;
+    padding-top:72px;padding-bottom:80px}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--primary-light);
+    color:var(--primary-dark);font-weight:600;font-size:.82rem;padding:7px 15px;border-radius:999px;
+    font-family:var(--font-head);letter-spacing:.02em}
+  .eyebrow svg{width:15px;height:15px}
+  .hero h1{font-size:clamp(2.2rem,4.6vw,3.5rem);font-weight:700;margin:20px 0 18px;letter-spacing:-.01em}
+  .hero h1 .accent{color:var(--primary)}
+  .hero p.lead{font-size:1.14rem;color:var(--muted);max-width:30em}
+  .hero-actions{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+  .hero-meta{display:flex;gap:26px;margin-top:34px;flex-wrap:wrap}
+  .hero-meta .hm{display:flex;align-items:center;gap:11px}
+  .hero-meta .hm .ic{width:42px;height:42px;border-radius:11px;background:#fff;border:1px solid var(--border);
+    display:grid;place-items:center;flex:0 0 auto;box-shadow:var(--shadow-sm)}
+  .hero-meta .hm .ic svg{width:20px;height:20px}
+  .hero-meta .hm b{font-family:var(--font-head);font-size:.95rem;display:block}
+  .hero-meta .hm span{font-size:.82rem;color:var(--muted)}
+
+  .hero-art{position:relative;aspect-ratio:1/1;border-radius:28px;
+    background:linear-gradient(160deg,var(--primary) 0%,var(--primary-dark) 100%);
+    box-shadow:var(--shadow-lg);display:grid;place-items:center;overflow:hidden}
+  .hero-art::before{content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.18),transparent 45%)}
+  .hero-art svg{width:72%;height:72%;position:relative;z-index:1}
+  .hero-badge{position:absolute;left:-14px;bottom:30px;background:#fff;border-radius:16px;
+    padding:14px 18px;box-shadow:var(--shadow);display:flex;align-items:center;gap:12px;z-index:3}
+  .hero-badge .dot{width:40px;height:40px;border-radius:50%;background:var(--accent);display:grid;place-items:center;flex:0 0 auto}
+  .hero-badge .dot svg{width:20px;height:20px}
+  .hero-badge b{font-family:var(--font-head);font-size:.92rem;display:block}
+  .hero-badge span{font-size:.78rem;color:var(--muted)}
+
+  /* ---------- Trust strip ---------- */
+  .trust{background:var(--text);color:#eaf4f1}
+  .trust .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding:34px 24px}
+  .trust .ts{display:flex;gap:14px;align-items:flex-start}
+  .trust .ts .ic{width:44px;height:44px;border-radius:11px;background:rgba(255,255,255,.08);
+    display:grid;place-items:center;flex:0 0 auto}
+  .trust .ts .ic svg{width:22px;height:22px}
+  .trust .ts h4{color:#fff;font-size:1rem;margin-bottom:3px}
+  .trust .ts p{font-size:.9rem;color:#c3d8d2;margin:0}
+  .trust .ts p small{display:block;color:#9fc0b8;font-size:.82rem}
+
+  /* ---------- Section shells ---------- */
+  .section{padding:84px 0}
+  .section.alt{background:var(--surface)}
+  .sec-head{text-align:center;max-width:46em;margin:0 auto 52px}
+  .sec-head .eyebrow{margin-bottom:14px}
+  .sec-head h2{font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:700;letter-spacing:-.01em}
+  .sec-head p{color:var(--muted);font-size:1.06rem;margin-top:14px}
+
+  /* ---------- Services ---------- */
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .svc{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:30px 26px;
+    display:flex;flex-direction:column;gap:14px;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+  .svc:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--primary-light)}
+  .svc .svc-ic{width:56px;height:56px;border-radius:14px;background:var(--primary-light);
+    display:grid;place-items:center;flex:0 0 auto}
+  .svc .svc-ic svg{width:28px;height:28px}
+  .svc h3{font-size:1.16rem;font-weight:600}
+  .svc p{color:var(--muted);font-size:.95rem;flex:1}
+  .svc .svc-link{display:inline-flex;align-items:center;gap:7px;color:var(--primary);font-weight:600;
+    font-family:var(--font-head);font-size:.92rem;margin-top:2px}
+  .svc .svc-link svg{width:16px;height:16px;transition:transform .15s ease}
+  .svc:hover .svc-link svg{transform:translateX(4px)}
+
+  /* ---------- Care values / why ---------- */
+  .why{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .why-art{aspect-ratio:4/3;border-radius:22px;background:linear-gradient(150deg,var(--surface-2),var(--primary-light));
+    position:relative;overflow:hidden;box-shadow:var(--shadow);display:grid;place-items:center}
+  .why-art svg{width:60%;height:60%}
+  .why h2{font-size:clamp(1.7rem,3.2vw,2.3rem);margin-bottom:16px}
+  .why > div > p{color:var(--muted);font-size:1.04rem;margin-bottom:26px}
+  .value-list{display:flex;flex-direction:column;gap:18px}
+  .value{display:flex;gap:15px;align-items:flex-start}
+  .value .vc{width:34px;height:34px;border-radius:9px;background:var(--primary);display:grid;place-items:center;flex:0 0 auto}
+  .value .vc svg{width:17px;height:17px}
+  .value b{font-family:var(--font-head);font-weight:600;display:block;margin-bottom:2px}
+  .value span{color:var(--muted);font-size:.94rem}
+
+  /* ---------- Hours band ---------- */
+  .hours-band{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .hours-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-sm);
+    padding:30px 32px}
+  .hours-card h3{font-size:1.2rem;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+  .hours-card h3 svg{width:22px;height:22px;color:var(--primary)}
+  .hrow{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);font-size:.96rem}
+  .hrow:last-child{border-bottom:none}
+  .hrow .d{font-weight:500}
+  .hrow .t{color:var(--muted)}
+  .hrow.closed .t{color:#b24a3a}
+  .hrow .note{font-size:.78rem;color:var(--primary);display:block}
+  .loc h2{font-size:clamp(1.6rem,3vw,2.1rem);margin-bottom:14px}
+  .loc p{color:var(--muted);margin-bottom:22px}
+  .loc .loc-line{display:flex;gap:13px;align-items:flex-start;margin-bottom:16px}
+  .loc .loc-line .ic{width:40px;height:40px;border-radius:10px;background:var(--primary-light);display:grid;place-items:center;flex:0 0 auto}
+  .loc .loc-line .ic svg{width:19px;height:19px}
+  .loc .loc-line b{font-family:var(--font-head);display:block;font-size:.95rem}
+  .loc .loc-line span{color:var(--muted);font-size:.92rem}
+
+  /* ---------- Appointment CTA ---------- */
+  .appt{background:linear-gradient(150deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;
+    border-radius:26px;overflow:hidden;position:relative;box-shadow:var(--shadow-lg)}
+  .appt::before{content:"";position:absolute;right:-80px;top:-80px;width:340px;height:340px;border-radius:50%;
+    background:rgba(255,255,255,.07)}
+  .appt .appt-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding:52px 50px;position:relative;z-index:1}
+  .appt h2{color:#fff;font-size:clamp(1.7rem,3vw,2.3rem);margin-bottom:12px}
+  .appt .lead{color:#d6ece7;font-size:1.06rem;margin-bottom:26px}
+  .appt .appt-points{display:flex;flex-direction:column;gap:14px}
+  .appt .ap{display:flex;gap:12px;align-items:center;font-size:.98rem;color:#eafaf6}
+  .appt .ap svg{width:20px;height:20px;flex:0 0 auto;color:#9be6d4}
+  .appt-form{background:#fff;border-radius:18px;padding:30px;color:var(--text);box-shadow:var(--shadow)}
+  .appt-form h3{font-size:1.2rem;margin-bottom:6px}
+  .appt-form p.fsub{color:var(--muted);font-size:.9rem;margin-bottom:20px}
+  .field{margin-bottom:15px}
+  .field label{display:block;font-size:.82rem;font-weight:600;color:var(--text);margin-bottom:6px;font-family:var(--font-head)}
+  .field input,.field select{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:var(--radius-sm);
+    font-family:var(--font-body);font-size:.95rem;color:var(--text);background:var(--surface);transition:border .15s ease,box-shadow .15s ease}
+  .field input:focus,.field select:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 4px var(--ring);background:#fff}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .appt-form .btn{width:100%;margin-top:6px}
+  .appt-form .form-note{text-align:center;font-size:.8rem;color:var(--muted);margin-top:12px}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--text);color:#c3d8d2;padding:64px 0 28px}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1)}
+  footer .brand .b-name{color:#fff}
+  footer .brand .b-sub{color:#7fd2c0}
+  footer .f-about{margin-top:16px;font-size:.92rem;color:#a9c6bf;max-width:30em}
+  footer h5{color:#fff;font-family:var(--font-head);font-size:.95rem;margin-bottom:16px;letter-spacing:.02em}
+  footer ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+  footer ul a{font-size:.92rem;color:#bcd4cd}
+  footer ul a:hover{color:#fff}
+  .f-contact div{display:flex;gap:10px;align-items:flex-start;margin-bottom:14px;font-size:.92rem;color:#bcd4cd}
+  .f-contact svg{width:17px;height:17px;flex:0 0 auto;margin-top:3px;color:#7fd2c0}
+  .f-social{display:flex;gap:10px;margin-top:6px}
+  .f-social a{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.08);display:grid;place-items:center}
+  .f-social a:hover{background:var(--primary)}
+  .f-social svg{width:18px;height:18px;color:#eafaf6}
+  .f-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:24px;flex-wrap:wrap;font-size:.84rem;color:#8fb0a8}
+  .f-bottom .f-legal{display:flex;gap:18px;flex-wrap:wrap}
+  .f-bottom a:hover{color:#fff}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:960px){
+    .hero .wrap{grid-template-columns:1fr;gap:40px;padding-top:52px;padding-bottom:60px}
+    .hero-art{max-width:440px;margin:0 auto;width:100%}
+    .trust .wrap{grid-template-columns:1fr;gap:22px}
+    .svc-grid{grid-template-columns:repeat(2,1fr)}
+    .why{grid-template-columns:1fr;gap:36px}
+    .why-art{order:-1;max-height:320px}
+    .hours-band{grid-template-columns:1fr;gap:28px}
+    .appt .appt-inner{grid-template-columns:1fr;gap:32px;padding:40px 32px}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:34px}
+  }
+  @media (max-width:640px){
+    .wrap{padding:0 18px}
+    nav.links,.util .util-left span.hide-sm{display:none}
+    .menu-toggle{display:inline-flex}
+    .section{padding:60px 0}
+    .svc-grid{grid-template-columns:1fr}
+    .field-row{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr}
+    .appt .appt-inner{padding:32px 22px}
+    .appt-form{padding:24px 20px}
+    .hero-actions .btn{flex:1}
+  }
+
+  /* no-JS mobile menu via details */
+  .mobile-menu{display:none}
+  @media (max-width:640px){
+    .mobile-menu{display:block;position:relative}
+    .mobile-menu summary{list-style:none;cursor:pointer;width:46px;height:46px;border-radius:11px;
+      border:1px solid var(--border);display:grid;place-items:center;background:#fff}
+    .mobile-menu summary::-webkit-details-marker{display:none}
+    .mobile-menu summary svg{width:22px;height:22px;color:var(--primary)}
+    .mobile-menu[open] .mm-panel{display:flex}
+    .mm-panel{display:none;position:absolute;right:0;top:56px;background:#fff;border:1px solid var(--border);
+      border-radius:14px;box-shadow:var(--shadow);flex-direction:column;min-width:200px;padding:10px;z-index:60}
+    .mm-panel a{padding:11px 14px;border-radius:9px;font-weight:500;font-size:.96rem}
+    .mm-panel a:hover{background:var(--primary-light);color:var(--primary)}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOP UTILITY BAR ============ -->
+<div class="util">
+  <div class="wrap">
+    <div class="util-left">
+      <a href="tel:+12818009003">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (281) 800-9003
+      </a>
+      <span class="hide-sm" style="color:#9fc0b8">400 Promenade Way, Suite 1300, Sugar Land, TX</span>
+    </div>
+    <div class="util-right">
+      <a href="#appointment">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Book An Appointment
+      </a>
+      <a href="#pharmacy">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.22 11.29l7.07-7.07a5 5 0 0 1 7.07 7.07l-7.07 7.07a5 5 0 0 1-7.07-7.07z"/><line x1="8" y1="8" x2="16" y2="16"/></svg>
+        Online Pharmacy
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ STICKY HEADER ============ -->
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Sugar Land Veterinary Clinic home">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="#fff"><path d="M8.35 3.2c1 0 1.7 1.3 1.6 2.9-.1 1.6-1 2.8-2 2.7-1 0-1.7-1.3-1.6-2.9.1-1.6 1-2.7 2-2.7zm7.3 0c1 0 1.9 1.1 2 2.7.1 1.6-.6 2.9-1.6 2.9-1 .1-1.9-1.1-2-2.7-.1-1.6.6-2.9 1.6-2.9zM3.9 8.4c.9-.3 1.9.6 2.3 2 .4 1.4-.1 2.8-1 3.1-.9.3-1.9-.6-2.3-2-.4-1.4.1-2.8 1-3.1zm16.2 0c.9.3 1.4 1.7 1 3.1-.4 1.4-1.4 2.3-2.3 2-.9-.3-1.4-1.7-1-3.1.4-1.4 1.4-2.3 2.3-2zM12 11.8c2 0 3.7 1.6 4.6 3.1.6 1 1.6 1.7 1.6 3 0 1.4-1.2 2.3-2.6 2.1-1-.1-1.9-.6-3.6-.6s-2.6.5-3.6.6c-1.4.2-2.6-.7-2.6-2.1 0-1.3 1-2 1.6-3 .9-1.5 2.6-3.1 4.6-3.1z"/></svg>
+      </span>
+      <span class="b-text">
+        <span class="b-name">Sugar Land Veterinary Clinic</span>
+        <span class="b-sub">Sugar Land, TX</span>
+      </span>
+    </a>
+
+    <nav class="links">
+      <a href="#top">Home</a>
+      <a href="#team">Meet Our Team</a>
+      <a href="#services">Services</a>
+      <a href="#hours">Visit Us</a>
+      <a href="#appointment">Contact</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a href="tel:+12818009003" class="btn btn-ghost">Call Us</a>
+      <a href="#appointment" class="btn btn-accent">Book An Appointment</a>
+      <details class="mobile-menu">
+        <summary aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </summary>
+        <div class="mm-panel">
+          <a href="#top">Home</a>
+          <a href="#team">Meet Our Team</a>
+          <a href="#services">Services</a>
+          <a href="#hours">Visit Us</a>
+          <a href="#appointment">Contact</a>
+          <a href="tel:+12818009003">Call (281) 800-9003</a>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.6-10-9A5.5 5.5 0 0 1 12 6.5 5.5 5.5 0 0 1 22 12c-2.5 4.4-10 9-10 9z"/></svg>
+        Full-service care for dogs, cats, and small pets
+      </span>
+      <h1>Where we treat your pets <span class="accent">as if they were our own.</span></h1>
+      <p class="lead">Compassionate, modern veterinary care in Sugar Land, Texas. From wellness visits to surgery and in-house diagnostics, our team is here for every stage of your pet's life.</p>
+      <div class="hero-actions">
+        <a href="#appointment" class="btn btn-accent">Book An Appointment</a>
+        <a href="#services" class="btn btn-ghost">View Our Services</a>
+      </div>
+      <div class="hero-meta">
+        <div class="hm">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+          <span><b>Open 5 days a week</b><span>Plus the 3rd Saturday monthly</span></span>
+        </div>
+        <div class="hm">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span><b>Easy to reach</b><span>Promenade Way, Sugar Land</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 200 200" fill="none">
+        <circle cx="100" cy="88" r="46" fill="rgba(255,255,255,.14)"/>
+        <!-- big paw -->
+        <g fill="#ffffff">
+          <ellipse cx="100" cy="112" rx="30" ry="26"/>
+          <ellipse cx="72" cy="78" rx="11" ry="15"/>
+          <ellipse cx="92" cy="66" rx="11" ry="16"/>
+          <ellipse cx="114" cy="66" rx="11" ry="16"/>
+          <ellipse cx="134" cy="78" rx="11" ry="15"/>
+        </g>
+        <!-- heart in paw -->
+        <path d="M100 118c-7-6-14-10-14-16a7 7 0 0 1 14-3 7 7 0 0 1 14 3c0 6-7 10-14 16z" fill="var(--accent)"/>
+      </svg>
+      <div class="hero-badge">
+        <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <span><b>New patients welcome</b><span>Same friendly team, every visit</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST STRIP ============ -->
+<div class="trust">
+  <div class="wrap">
+    <div class="ts">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#9be6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+      <div><h4>Call us today</h4><p>(281) 800-9003<small>Speak with our front desk during clinic hours</small></p></div>
+    </div>
+    <div class="ts">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#9be6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+      <div><h4>Find us</h4><p>400 Promenade Way, Suite 1300<small>Sugar Land, TX 77478</small></p></div>
+    </div>
+    <div class="ts">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#9be6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+      <div><h4>Clinic hours</h4><p>Mon to Fri, mornings to 6:00 PM<small>Open the 3rd Saturday each month</small></p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SERVICES (each listed ONCE, real labels) ============ -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4L12 17l-6.3 4.4L8 14 2 9.4h7.6z"/></svg>
+        Featured Services
+      </span>
+      <h2>Complete care under one roof</h2>
+      <p>Everything your pet needs, from routine wellness visits to surgery and diagnostics, delivered by a team that treats your pet like family.</p>
+    </div>
+
+    <div class="svc-grid">
+      <article class="svc">
+        <span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.6-10-9A5.5 5.5 0 0 1 12 6.5 5.5 5.5 0 0 1 22 12c-2.5 4.4-10 9-10 9z"/></svg></span>
+        <h3>Wellness &amp; Preventative Care</h3>
+        <p>Routine exams, vaccinations, and parasite prevention that keep your pet healthy at every stage of life.</p>
+        <a class="svc-link" href="#appointment">Book a wellness visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </article>
+
+      <article class="svc">
+        <span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2 6 4-14 2 8h6"/></svg></span>
+        <h3>Pain Management</h3>
+        <p>Thoughtful, multi-modal approaches that keep your pet comfortable through recovery and chronic conditions.</p>
+        <a class="svc-link" href="#appointment">Ask about options <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </article>
+
+      <article class="svc">
+        <span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5c-2-2-5-2.5-6.5-.5-1.2 1.7-.8 4 0 7 .6 2.2 1 4.5 2.5 4.5 1.2 0 1.3-1.5 2.5-1.5s1.3 1.5 2.5 1.5c1.5 0 1.9-2.3 2.5-4.5.8-3 1.2-5.3 0-7-1.5-2-4.5-1.5-6.5.5z"/></svg></span>
+        <h3>State-of-the-Art Dentistry</h3>
+        <p>Dental cleanings, exams, and oral care that protect your pet's teeth, gums, and overall health.</p>
+        <a class="svc-link" href="#appointment">Schedule a dental <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </article>
+
+      <article class="svc">
+        <span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg></span>
+        <h3>Senior &amp; Geriatric Care</h3>
+        <p>Tailored checkups and support designed around the changing needs of older dogs and cats.</p>
+        <a class="svc-link" href="#appointment">Care for older pets <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </article>
+
+      <article class="svc">
+        <span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2l-1 4 4 4-4 1.5L9 20a2.8 2.8 0 0 1-4-4l8.5-8.5L15 3.5z"/></svg></span>
+        <h3>Routine &amp; Soft Tissue Surgery</h3>
+        <p>Spays, neuters, and soft tissue procedures performed with careful monitoring and clear aftercare.</p>
+        <a class="svc-link" href="#appointment">Discuss surgery <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </article>
+
+      <article class="svc">
+        <span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 9h6M3 15h6"/><circle cx="15.5" cy="13" r="2.5"/></svg></span>
+        <h3>In-House Diagnostics</h3>
+        <p>On-site lab work and imaging for faster answers the moment your pet needs them.</p>
+        <a class="svc-link" href="#appointment">Request a workup <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </article>
+
+      <article class="svc">
+        <span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+        <h3>In Case of an Emergency</h3>
+        <p>Clear guidance on what to do and how to reach us quickly when your pet needs urgent attention.</p>
+        <a class="svc-link" href="tel:+12818009003">Call the clinic now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY / CARE VALUES ============ -->
+<section class="section alt" id="team">
+  <div class="wrap why">
+    <div class="why-art" aria-hidden="true">
+      <svg viewBox="0 0 200 160" fill="none">
+        <rect x="18" y="30" width="164" height="104" rx="18" fill="#ffffff"/>
+        <circle cx="70" cy="74" r="26" fill="var(--primary-light)"/>
+        <path d="M70 62c-5 0-9 4-9 9 0 7 9 13 9 13s9-6 9-13c0-5-4-9-9-9z" fill="var(--accent)"/>
+        <rect x="104" y="58" width="60" height="9" rx="4.5" fill="var(--surface-2)"/>
+        <rect x="104" y="74" width="46" height="9" rx="4.5" fill="var(--surface-2)"/>
+        <rect x="104" y="90" width="54" height="9" rx="4.5" fill="var(--primary-light)"/>
+      </svg>
+    </div>
+    <div>
+      <span class="eyebrow">Our promise</span>
+      <h2>A calmer, kinder visit for you and your pet</h2>
+      <p>We built our practice around one simple idea: treat every patient the way we would want our own pets treated. That means gentle handling, clear explanations, and a team that takes the time to listen.</p>
+      <div class="value-list">
+        <div class="value">
+          <span class="vc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span><b>Compassionate, unhurried care</b><span>Time to answer your questions at every appointment.</span></span>
+        </div>
+        <div class="value">
+          <span class="vc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span><b>Modern, on-site diagnostics</b><span>Lab work and imaging in house, so answers come faster.</span></span>
+        </div>
+        <div class="value">
+          <span class="vc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span><b>Care for every life stage</b><span>From first puppy and kitten visits through senior years.</span></span>
+        </div>
+      </div>
+      <div style="margin-top:30px">
+        <a href="#appointment" class="btn btn-primary">Book An Appointment</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOURS + LOCATION ============ -->
+<section class="section" id="hours">
+  <div class="wrap hours-band">
+    <div class="hours-card">
+      <h3>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Clinic Hours
+      </h3>
+      <div class="hrow"><span class="d">Monday</span><span class="t">7:30 AM to 6:00 PM</span></div>
+      <div class="hrow"><span class="d">Tuesday</span><span class="t">7:30 AM to 6:00 PM</span></div>
+      <div class="hrow"><span class="d">Wednesday</span><span class="t">7:30 AM to 6:00 PM</span></div>
+      <div class="hrow"><span class="d">Thursday</span><span class="t">9:30 AM to 6:00 PM</span></div>
+      <div class="hrow"><span class="d">Friday</span><span class="t">7:30 AM to 6:00 PM</span></div>
+      <div class="hrow"><span class="d">Saturday</span><span class="t">Closed<span class="note">Open the 3rd Saturday, 9:00 AM to 1:00 PM</span></span></div>
+      <div class="hrow closed"><span class="d">Sunday</span><span class="t">Closed</span></div>
+    </div>
+    <div class="loc">
+      <span class="eyebrow">Visit us</span>
+      <h2>Conveniently located on Promenade Way</h2>
+      <p>Easy parking and a welcoming lobby, right here in Sugar Land. Call ahead or book online and we will have everything ready for your pet's visit.</p>
+      <div class="loc-line">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <span><b>Address</b><span>400 Promenade Way, Suite 1300, Sugar Land, TX 77478</span></span>
+      </div>
+      <div class="loc-line">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+        <span><b>Phone</b><span>(281) 800-9003</span></span>
+      </div>
+      <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+        <a href="#appointment" class="btn btn-accent">Book An Appointment</a>
+        <a href="tel:+12818009003" class="btn btn-ghost">Call (281) 800-9003</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APPOINTMENT CTA ============ -->
+<section class="section alt" id="appointment">
+  <div class="wrap">
+    <div class="appt">
+      <div class="appt-inner">
+        <div>
+          <h2>Request an appointment</h2>
+          <p class="lead">Tell us a little about your pet and your preferred time. Our team will confirm the details with you by phone.</p>
+          <div class="appt-points">
+            <div class="ap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> One simple form, no account required</div>
+            <div class="ap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> New and returning patients welcome</div>
+            <div class="ap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Prefer to talk? Call (281) 800-9003</div>
+          </div>
+          <div id="pharmacy" style="margin-top:28px">
+            <a href="#pharmacy" class="btn btn-white">Visit the Online Pharmacy</a>
+          </div>
+        </div>
+
+        <form class="appt-form" action="#appointment" method="post" onsubmit="return false">
+          <h3>Appointment Request</h3>
+          <p class="fsub">We will reply during clinic hours to confirm your time.</p>
+          <div class="field-row">
+            <div class="field">
+              <label for="owner">Your name</label>
+              <input id="owner" name="owner" type="text" placeholder="First and last name" autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" placeholder="(281) 000-0000" autocomplete="tel">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="pet">Pet's name</label>
+              <input id="pet" name="pet" type="text" placeholder="e.g. Bella">
+            </div>
+            <div class="field">
+              <label for="type">Pet type</label>
+              <select id="type" name="type">
+                <option>Dog</option>
+                <option>Cat</option>
+                <option>Small pet</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="reason">Reason for visit</label>
+              <select id="reason" name="reason">
+                <option>Wellness &amp; Preventative Care</option>
+                <option>Pain Management</option>
+                <option>Dentistry</option>
+                <option>Senior &amp; Geriatric Care</option>
+                <option>Surgery</option>
+                <option>In-House Diagnostics</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="time">Preferred time</label>
+              <select id="time" name="time">
+                <option>Morning</option>
+                <option>Midday</option>
+                <option>Afternoon</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-accent">Request Appointment</button>
+          <p class="form-note">This is a sample layout. Submissions are not sent anywhere.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand">
+          <span class="mark">
+            <svg viewBox="0 0 24 24" fill="#fff"><path d="M8.35 3.2c1 0 1.7 1.3 1.6 2.9-.1 1.6-1 2.8-2 2.7-1 0-1.7-1.3-1.6-2.9.1-1.6 1-2.7 2-2.7zm7.3 0c1 0 1.9 1.1 2 2.7.1 1.6-.6 2.9-1.6 2.9-1 .1-1.9-1.1-2-2.7-.1-1.6.6-2.9 1.6-2.9zM3.9 8.4c.9-.3 1.9.6 2.3 2 .4 1.4-.1 2.8-1 3.1-.9.3-1.9-.6-2.3-2-.4-1.4.1-2.8 1-3.1zm16.2 0c.9.3 1.4 1.7 1 3.1-.4 1.4-1.4 2.3-2.3 2-.9-.3-1.4-1.7-1-3.1.4-1.4 1.4-2.3 2.3-2zM12 11.8c2 0 3.7 1.6 4.6 3.1.6 1 1.6 1.7 1.6 3 0 1.4-1.2 2.3-2.6 2.1-1-.1-1.9-.6-3.6-.6s-2.6.5-3.6.6c-1.4.2-2.6-.7-2.6-2.1 0-1.3 1-2 1.6-3 .9-1.5 2.6-3.1 4.6-3.1z"/></svg>
+          </span>
+          <span class="b-text">
+            <span class="b-name">Sugar Land Veterinary Clinic</span>
+            <span class="b-sub">Sugar Land, TX</span>
+          </span>
+        </div>
+        <p class="f-about">Where we treat your pets as if they were our own. Compassionate, full-service veterinary care for the families of Sugar Land and the surrounding area.</p>
+        <div class="f-social">
+          <a href="#top" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.75-1.6 1.5v1.8H16l-.44 2.9h-2.36v7A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="#top" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#top" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 3c.3 2.2 1.7 3.9 4 4.2v3c-1.5 0-2.9-.5-4-1.3v6.4a6 6 0 1 1-6-6c.3 0 .7 0 1 .1v3.1a3 3 0 1 0 2 2.8V3h3z"/></svg></a>
+        </div>
+      </div>
+
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#team">About Us</a></li>
+          <li><a href="#services">Our Services</a></li>
+          <li><a href="#pharmacy">Online Pharmacy</a></li>
+          <li><a href="#appointment">Payment Options</a></li>
+          <li><a href="#appointment">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Patient Center</h5>
+        <ul>
+          <li><a href="#appointment">Client Forms</a></li>
+          <li><a href="#pharmacy">Prescriptions</a></li>
+          <li><a href="#appointment">Payment Options</a></li>
+          <li><a href="#services">Pet Owner Info</a></li>
+          <li><a href="#appointment">Reviews</a></li>
+        </ul>
+      </div>
+
+      <div class="f-contact">
+        <h5>Get In Touch</h5>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>400 Promenade Way, Suite 1300<br>Sugar Land, TX 77478</span></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>(281) 800-9003</span></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Mon to Fri, open to 6:00 PM<br>3rd Saturday each month</span></div>
+      </div>
+    </div>
+
+    <div class="f-bottom">
+      <span>&copy; 2026 Sugar Land Veterinary Clinic. All Rights Reserved.</span>
+      <div class="f-legal">
+        <a href="#top">Accessibility Statement</a>
+        <a href="#top">Privacy Policy</a>
+        <a href="#top">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
